@@ -7,6 +7,28 @@
 * Use a short description, of what the file is about 
 Example: car_03_EDA.ipynb
 
+## Manage repository
+
+Since there are only two project members, we can handle this by using "branches": 
+Create a local new branch from the master branch for different tasks, e.g. "car_EDA_vanessa":
++ `git checkout -b car_EDA_vanessa`
+
+Make sure your new branch is rebased to master branch:
++ `git rebase master`
+
+If master has been updated, rebase the local branch:
++ `git checkout master`
++ `git pull origin master`
++ `git rebase master`
+
+After finishing the part, commit and push:
+
++ `git add . `
++ `git commit -"some commit message"`
++ `git push origin --force car_EDA_vanessa`
+
+When a local branch is ready, merge into master branch, if necessary, solve conflicts.
+
 ## Workflow
 Let's follow the data science mining process:
 
