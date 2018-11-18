@@ -9,7 +9,7 @@ Example: car_03_EDA.ipynb
 
 ## Manage repository
 
-Since there are only two project members, we can handle this by using "branches": 
+To have aa better overview of who does what, create "personal branches"
 Create a local new branch from the master branch for different tasks, e.g. "car_EDA_vanessa":
 + `git checkout -b car_EDA_vanessa`
 
@@ -19,6 +19,7 @@ Make sure your new branch is rebased to master branch:
 If master has been updated, rebase the local branch:
 + `git checkout master`
 + `git pull origin master`
++ `git checkout car_EDA_vanessa`
 + `git rebase master`
 
 After finishing the part, commit and push:
