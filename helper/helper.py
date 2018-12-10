@@ -252,12 +252,12 @@ def outliers_idx(df, y_measurement, n_std=3):
     return df.loc[(df[y_measurement] < lower) | (df[y_measurement] > upper)].index
 
 
-def lin_model(y_train, X_train, y_test, X_test, reg_model="OLS"):
+def lin_model(y_train, X_train, y_test, X_test, reg_model="OLS", y_pred_name="saleprice_predicted", y_name="saleprice"):
     ''' builds a specified linear regression, including a iterative way of removing insignificant attributes'''
     model_function=getattr(sm, reg_model)
     
     model_summaries={}
-    y_pred_name = "saleprice_predicted"
+    y_pred_name = y_pred_name
     model = model_function(y_train, X_train).fit()
     
     model_sign_attr=[]
@@ -289,34 +289,34 @@ def lin_model(y_train, X_train, y_test, X_test, reg_model="OLS"):
     reg_test = model.predict(X_test[model_sign_attr])
 
     # get results
-    reg_train_results_df = pd.DataFrame({"saleprice": y_train.copy()})
+    reg_train_results_df = pd.DataFrame({y_name: y_train.copy()})
     reg_train_results_df[y_pred_name] = model.fittedvalues
     reg_train_results_df['set'] = 'TRAIN'
 
-    reg_test_results_df = pd.DataFrame({"saleprice": y_test.copy()})
+    reg_test_results_df = pd.DataFrame({y_name: y_test.copy()})
     reg_test_results_df[y_pred_name] = reg_test
     reg_test_results_df['set'] = 'TEST'
 
     # metrics
     baseline_val, baseline_mse, baseline_rmsle = get_baseline_for_regression(
         X_train=X_train,
-        y_train=reg_train_results_df["saleprice"],
+        y_train=reg_train_results_df[y_name],
         X_test=X_test,
-        y_test=reg_test_results_df["saleprice"])
+        y_test=reg_test_results_df[y_name])
 
     mse_train, r2_train, adj_r2_train, st_error_train = regression_model_metrics(
-        y=reg_train_results_df["saleprice"],
+        y=reg_train_results_df[y_name],
         y_predicted=reg_train_results_df[y_pred_name],
         X=X_train)
 
     mse_test, r2_test, adj_r2_test, st_error_test = regression_model_metrics(
-        y=reg_test_results_df["saleprice"],
+        y=reg_test_results_df[y_name],
         y_predicted=reg_test_results_df[y_pred_name],
         X=X_test)
     
-    rmsle_train=rmsle(ytest=reg_train_results_df["saleprice"], 
+    rmsle_train=rmsle(ytest=reg_train_results_df[y_name], 
                       ypred=reg_train_results_df[y_pred_name])
-    rmsle_test=rmsle(ytest=reg_test_results_df["saleprice"], 
+    rmsle_test=rmsle(ytest=reg_test_results_df[y_name], 
                      ypred=reg_test_results_df[y_pred_name])
 
 
@@ -341,42 +341,42 @@ def lin_model(y_train, X_train, y_test, X_test, reg_model="OLS"):
                            'test_obs': reg_test_results_df.shape[0]}
     return model, model_summaries, model_sign_attr
 
-def get_model_results(model,y_train, X_train, y_test, X_test):
+def get_model_results(model,y_train, X_train, y_test, X_test, y_pred_name = "saleprice_predicted", y_name="saleprice"):
     
     model_summaries={}
     reg_test = model.predict(X_test)
-    y_pred_name = "saleprice_predicted"
+    y_pred_name = y_pred_name
     
     # get results
-    reg_train_results_df = pd.DataFrame({"saleprice": y_train.copy()})
+    reg_train_results_df = pd.DataFrame({y_name: y_train.copy()})
     reg_train_results_df[y_pred_name] = model.predict(X_train)
     reg_train_results_df['set'] = 'TRAIN'
 
-    reg_test_results_df = pd.DataFrame({"saleprice": y_test.copy()})
+    reg_test_results_df = pd.DataFrame({y_name: y_test.copy()})
     reg_test_results_df[y_pred_name] = reg_test
     reg_test_results_df['set'] = 'TEST'
 
     # metrics
     baseline_val, baseline_mse, baseline_rmsle = get_baseline_for_regression(
         X_train=X_train,
-        y_train=reg_train_results_df["saleprice"],
+        y_train=reg_train_results_df[y_name],
         X_test=X_test,
-        y_test=reg_test_results_df["saleprice"])
+        y_test=reg_test_results_df[y_name])
 
     mse_train, r2_train, adj_r2_train, st_error_train = regression_model_metrics(
-        y=reg_train_results_df["saleprice"],
+        y=reg_train_results_df[y_name],
         y_predicted=reg_train_results_df[y_pred_name],
         X=X_train)
 
     mse_test, r2_test, adj_r2_test, st_error_test = regression_model_metrics(
-        y=reg_test_results_df["saleprice"],
+        y=reg_test_results_df[y_name],
         y_predicted=reg_test_results_df[y_pred_name],
         X=X_test)
     
     
-    rmsle_train=rmsle(ytest=reg_train_results_df["saleprice"], 
+    rmsle_train=rmsle(ytest=reg_train_results_df[y_name], 
                       ypred=reg_train_results_df[y_pred_name])
-    rmsle_test=rmsle(ytest=reg_test_results_df["saleprice"], 
+    rmsle_test=rmsle(ytest=reg_test_results_df[y_name], 
                      ypred=reg_test_results_df[y_pred_name])
 
     model_summaries = {'y_pred_name': y_pred_name,
@@ -400,7 +400,7 @@ def get_model_results(model,y_train, X_train, y_test, X_test):
                            'test_obs': reg_test_results_df.shape[0]}
     return model, model_summaries
 
-def reg_model_results_plots(model_summaries):
+def reg_model_results_plots(model_summaries,y_pred_name = "saleprice_predicted", y_name="saleprice"):
                            
 #     c_measurements = len(model_summaries.keys())
     
@@ -408,7 +408,7 @@ def reg_model_results_plots(model_summaries):
 
         fig, axes = plt.subplots(1, 2,
                                  figsize=(20, 7))
-
+    
 
     y_pred_name = model_summaries['y_pred_name']
     train_res_df = model_summaries['train_res_df']
@@ -429,29 +429,29 @@ def reg_model_results_plots(model_summaries):
     train_obs = model_summaries['train_obs']
     test_obs = model_summaries['test_obs']
 
-    line = reg_line(train_res_df["saleprice"],
+    line = reg_line(train_res_df[y_name],
                     train_res_df[y_pred_name])
 
     ax_1 = axes[0]
     ax_2 = axes[1]
 
-    ax_1.scatter(train_res_df["saleprice"], 
+    ax_1.scatter(train_res_df[y_name], 
                 train_res_df[y_pred_name],
                 c='blue', edgecolors='k', label='train')
     ax_1.legend(loc='upper left')
 
-    ax_1.scatter(test_res_df["saleprice"], 
+    ax_1.scatter(test_res_df[y_name], 
                 test_res_df[y_pred_name],
                 c='red', edgecolors='k', label='test')
     ax_1.legend(loc='upper left', fontsize=12)
 
-    ax_1.plot(train_res_df["saleprice"], line, c='green', linewidth=1, label='reg line')
+    ax_1.plot(train_res_df[y_name], line, c='green', linewidth=1, label='reg line')
     ax_1.legend(loc='upper left', fontsize=12)
     
     ax_1.axhline(baseline_val, c='black', linewidth=1, linestyle='--', label='baseline')
     ax_1.legend(loc='upper left', fontsize=12)
 
-    ax_1.set_title('{}: Actual vs. Predicted'.format("saleprice"), fontsize=16)
+    ax_1.set_title('{}: Actual vs. Predicted'.format(y_name), fontsize=16)
     ax_1.set_xlabel('Actual', fontsize=14)
     ax_1.set_ylabel('Predicted', fontsize=14)
     ax_1.tick_params(axis='both', labelsize=12)
@@ -486,13 +486,13 @@ def reg_model_results_plots(model_summaries):
                        linewidth=2.5,
                        color='firebrick')
 
-    bplot = ax_2.boxplot([train_res_df["saleprice"].values, 
+    bplot = ax_2.boxplot([train_res_df[y_name].values, 
                         train_res_df[y_pred_name].values,
-                        test_res_df["saleprice"].values,
+                        test_res_df[y_name].values,
                         test_res_df[y_pred_name].values],
                         patch_artist=True, 
                         medianprops=medianprops)
-    ax_2.set_title('{}: Sets Statistics'.format("saleprice"), fontsize=16)
+    ax_2.set_title('{}: Sets Statistics'.format(y_name), fontsize=16)
 
     colors = ['pink', 'lightblue', 'lightgreen', 'lightyellow']
     for patch, color in zip(bplot['boxes'], colors):
