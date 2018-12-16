@@ -13127,7 +13127,7 @@ Last Changes: 10.12.2018</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Regression-Analysis-on-Car-Seat-Data" data-toc-modified-id="Regression-Analysis-on-Car-Seat-Data-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Regression Analysis on Car Seat Data</a></span><ul class="toc-item"><li><span><a href="#Function-Definitions" data-toc-modified-id="Function-Definitions-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Function Definitions</a></span></li><li><span><a href="#Data-Preparation" data-toc-modified-id="Data-Preparation-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Data Preparation</a></span><ul class="toc-item"><li><span><a href="#Create-Training-and-Testingset" data-toc-modified-id="Create-Training-and-Testingset-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Create Training and Testingset</a></span></li><li><span><a href="#Normalize-Data-with-Standardscaler" data-toc-modified-id="Normalize-Data-with-Standardscaler-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Normalize Data with Standardscaler</a></span></li><li><span><a href="#Handle-outliers" data-toc-modified-id="Handle-outliers-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Handle outliers</a></span></li></ul></li><li><span><a href="#Baseline-Model" data-toc-modified-id="Baseline-Model-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Baseline Model</a></span></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-1)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-1)-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 1)</a></span></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-2)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-2)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 2)</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-3)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-3)-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 3)</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Ordinary-Least-Square---Cross-Validation" data-toc-modified-id="Ordinary-Least-Square---Cross-Validation-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Ordinary Least Square - Cross Validation</a></span></li><li><span><a href="#General-Least-Square-Regression" data-toc-modified-id="General-Least-Square-Regression-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>General Least Square Regression</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.8.1"><span class="toc-item-num">1.8.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Lasso-Regression-Iteration-1" data-toc-modified-id="Lasso-Regression-Iteration-1-1.9"><span class="toc-item-num">1.9&nbsp;&nbsp;</span>Lasso Regression Iteration 1</a></span></li><li><span><a href="#Lasso-Regression-Iteration-2" data-toc-modified-id="Lasso-Regression-Iteration-2-1.10"><span class="toc-item-num">1.10&nbsp;&nbsp;</span>Lasso Regression Iteration 2</a></span></li><li><span><a href="#Lasso-Regression-iteration-3" data-toc-modified-id="Lasso-Regression-iteration-3-1.11"><span class="toc-item-num">1.11&nbsp;&nbsp;</span>Lasso Regression iteration 3</a></span></li><li><span><a href="#Lasso-Regression-Iteration-4" data-toc-modified-id="Lasso-Regression-Iteration-4-1.12"><span class="toc-item-num">1.12&nbsp;&nbsp;</span>Lasso Regression Iteration 4</a></span></li><li><span><a href="#Elastic-Nets-Iteration-1" data-toc-modified-id="Elastic-Nets-Iteration-1-1.13"><span class="toc-item-num">1.13&nbsp;&nbsp;</span>Elastic Nets Iteration 1</a></span></li><li><span><a href="#Some-other-methods:-KNN-Regression" data-toc-modified-id="Some-other-methods:-KNN-Regression-1.14"><span class="toc-item-num">1.14&nbsp;&nbsp;</span>Some other methods: KNN-Regression</a></span></li><li><span><a href="#PCA-Analysis" data-toc-modified-id="PCA-Analysis-1.15"><span class="toc-item-num">1.15&nbsp;&nbsp;</span>PCA Analysis</a></span><ul class="toc-item"><li><span><a href="#PCR-Analysis" data-toc-modified-id="PCR-Analysis-1.15.1"><span class="toc-item-num">1.15.1&nbsp;&nbsp;</span>PCR Analysis</a></span></li><li><span><a href="#PLS" data-toc-modified-id="PLS-1.15.2"><span class="toc-item-num">1.15.2&nbsp;&nbsp;</span>PLS</a></span></li><li><span><a href="#XGBoost" data-toc-modified-id="XGBoost-1.15.3"><span class="toc-item-num">1.15.3&nbsp;&nbsp;</span>XGBoost</a></span></li><li><span><a href="#Cross-validation-XGBoost" data-toc-modified-id="Cross-validation-XGBoost-1.15.4"><span class="toc-item-num">1.15.4&nbsp;&nbsp;</span>Cross-validation XGBoost</a></span></li><li><span><a href="#Hyperparameter" data-toc-modified-id="Hyperparameter-1.15.5"><span class="toc-item-num">1.15.5&nbsp;&nbsp;</span>Hyperparameter</a></span></li></ul></li><li><span><a href="#Summary" data-toc-modified-id="Summary-1.16"><span class="toc-item-num">1.16&nbsp;&nbsp;</span>Summary</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Regression-Analysis-on-Car-Seat-Data" data-toc-modified-id="Regression-Analysis-on-Car-Seat-Data-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Regression Analysis on Car Seat Data</a></span><ul class="toc-item"><li><span><a href="#Function-Definitions" data-toc-modified-id="Function-Definitions-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Function Definitions</a></span></li><li><span><a href="#Data-Preparation" data-toc-modified-id="Data-Preparation-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Data Preparation</a></span><ul class="toc-item"><li><span><a href="#Create-Training-and-Testingset" data-toc-modified-id="Create-Training-and-Testingset-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Create Training and Testingset</a></span></li><li><span><a href="#Normalize-Data-with-Standardscaler" data-toc-modified-id="Normalize-Data-with-Standardscaler-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>Normalize Data with Standardscaler</a></span></li><li><span><a href="#Handle-outliers" data-toc-modified-id="Handle-outliers-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Handle outliers</a></span></li></ul></li><li><span><a href="#Baseline-Model" data-toc-modified-id="Baseline-Model-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Baseline Model</a></span></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-1)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-1)-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 1)</a></span></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-2)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-2)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 2)</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.5.1"><span class="toc-item-num">1.5.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Ordinary-Least-Square-Regression-Model-(Iteration-3)" data-toc-modified-id="Ordinary-Least-Square-Regression-Model-(Iteration-3)-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>Ordinary Least Square Regression Model (Iteration 3)</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.6.1"><span class="toc-item-num">1.6.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Ordinary-Least-Square---Cross-Validation" data-toc-modified-id="Ordinary-Least-Square---Cross-Validation-1.7"><span class="toc-item-num">1.7&nbsp;&nbsp;</span>Ordinary Least Square - Cross Validation</a></span></li><li><span><a href="#General-Least-Square-Regression" data-toc-modified-id="General-Least-Square-Regression-1.8"><span class="toc-item-num">1.8&nbsp;&nbsp;</span>General Least Square Regression</a></span><ul class="toc-item"><li><span><a href="#Residuals-vs.-Fitted" data-toc-modified-id="Residuals-vs.-Fitted-1.8.1"><span class="toc-item-num">1.8.1&nbsp;&nbsp;</span>Residuals vs. Fitted</a></span></li></ul></li><li><span><a href="#Lasso-Regression-Iteration-1" data-toc-modified-id="Lasso-Regression-Iteration-1-1.9"><span class="toc-item-num">1.9&nbsp;&nbsp;</span>Lasso Regression Iteration 1</a></span></li><li><span><a href="#Lasso-Regression-Iteration-2" data-toc-modified-id="Lasso-Regression-Iteration-2-1.10"><span class="toc-item-num">1.10&nbsp;&nbsp;</span>Lasso Regression Iteration 2</a></span></li><li><span><a href="#Lasso-Regression-iteration-3" data-toc-modified-id="Lasso-Regression-iteration-3-1.11"><span class="toc-item-num">1.11&nbsp;&nbsp;</span>Lasso Regression iteration 3</a></span></li><li><span><a href="#Lasso-Regression-Iteration-4" data-toc-modified-id="Lasso-Regression-Iteration-4-1.12"><span class="toc-item-num">1.12&nbsp;&nbsp;</span>Lasso Regression Iteration 4</a></span></li><li><span><a href="#Elastic-Nets-Iteration-1" data-toc-modified-id="Elastic-Nets-Iteration-1-1.13"><span class="toc-item-num">1.13&nbsp;&nbsp;</span>Elastic Nets Iteration 1</a></span></li><li><span><a href="#Some-other-methods:-KNN-Regression" data-toc-modified-id="Some-other-methods:-KNN-Regression-1.14"><span class="toc-item-num">1.14&nbsp;&nbsp;</span>Some other methods: KNN-Regression</a></span></li><li><span><a href="#PCA-Analysis" data-toc-modified-id="PCA-Analysis-1.15"><span class="toc-item-num">1.15&nbsp;&nbsp;</span>PCA Analysis</a></span></li><li><span><a href="#PCR-Analysis" data-toc-modified-id="PCR-Analysis-1.16"><span class="toc-item-num">1.16&nbsp;&nbsp;</span>PCR Analysis</a></span></li><li><span><a href="#PLS" data-toc-modified-id="PLS-1.17"><span class="toc-item-num">1.17&nbsp;&nbsp;</span>PLS</a></span></li><li><span><a href="#XGBoost" data-toc-modified-id="XGBoost-1.18"><span class="toc-item-num">1.18&nbsp;&nbsp;</span>XGBoost</a></span><ul class="toc-item"><li><span><a href="#Cross-validation-XGBoost" data-toc-modified-id="Cross-validation-XGBoost-1.18.1"><span class="toc-item-num">1.18.1&nbsp;&nbsp;</span>Cross-validation XGBoost</a></span></li><li><span><a href="#Hyperparameter" data-toc-modified-id="Hyperparameter-1.18.2"><span class="toc-item-num">1.18.2&nbsp;&nbsp;</span>Hyperparameter</a></span></li></ul></li><li><span><a href="#Summary" data-toc-modified-id="Summary-1.19"><span class="toc-item-num">1.19&nbsp;&nbsp;</span>Summary</a></span></li></ul></li></ul></div>
 </div>
 </div>
 </div>
@@ -13227,48 +13227,6 @@ Last Changes: 10.12.2018</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># all_models = pd.DataFrame(columns=[&#39;Model&#39;,&#39;train_res_df&#39;,&#39;test_res_df&#39;,</span>
-<span class="c1">#                                    &#39;mse_train&#39;,&#39;mse_test&#39;,&#39;rmsle_train&#39;,</span>
-<span class="c1">#                                    &#39;rmsle_test&#39;, &#39;r2_train&#39;, &#39;r2_test&#39;,</span>
-<span class="c1">#                                    &#39;se_train&#39;, &#39;se_test&#39;, &#39;train_obs&#39;,</span>
-<span class="c1">#                                    &#39;test_obs&#39;, &#39;outliers_obs&#39;])</span>
-
-<span class="c1"># def add_model_to_overview(model_summaries, modelname):</span>
-<span class="c1">#     model_dic={}</span>
-<span class="c1"># #     model_df=pd.DataFrame(columns=[&#39;Model&#39;,&#39;train_res_df&#39;,&#39;test_res_df&#39;,</span>
-<span class="c1"># #                                    &#39;mse_train&#39;,&#39;mse_test&#39;,&#39;rmsle_train&#39;,</span>
-<span class="c1"># #                                    &#39;rmsle_test&#39;, &#39;r2_train&#39;, &#39;r2_test&#39;,</span>
-<span class="c1"># #                                    &#39;se_train&#39;, &#39;se_test&#39;, &#39;train_obs&#39;,</span>
-<span class="c1"># #                                    &#39;test_obs&#39;, &#39;outliers_obs&#39;])</span>
-<span class="c1">#     model_dic.update({&quot;Model&quot;:modelname})</span>
-<span class="c1">#     model_dic.update({&quot;train_res_df&quot;: model_summaries[&#39;train_res_df&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;test_res_df&quot;:model_summaries[&#39;test_res_df&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;mse_train&quot;:model_summaries[&#39;mse_train&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;mse_test&quot;:model_summaries[&#39;mse_test&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;r2_train&quot;:model_summaries[&#39;r2_train&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;r2_test&quot;:model_summaries[&#39;rmsle_train&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;rmsle_train&quot;:model_summaries[&#39;rmsle_test&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;rmsle_test&quot;:model_summaries[&#39;r2_test&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;se_train&quot;:model_summaries[&#39;se_train&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;se_test&quot;:model_summaries[&#39;se_test&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;train_obs&quot;:model_summaries[&#39;train_obs&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;test_obs&quot;:model_summaries[&#39;test_obs&#39;]})</span>
-<span class="c1">#     model_dic.update({&quot;outliers_obs&quot;:model_summaries[&#39;outliers_obs&#39;]})</span>
-<span class="c1">#     model_df=pd.DataFrame(model_dic,index=[0])</span>
-
-    
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -15966,7 +15924,7 @@ Name: 0, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Also, a decent mode.</p>
+<p>Also, a decent model.</p>
 
 </div>
 </div>
@@ -16858,7 +16816,8 @@ Alpha:  0.05
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="PCA-Analysis">PCA Analysis<a class="anchor-link" href="#PCA-Analysis">&#182;</a></h2>
+<h2 id="PCA-Analysis">PCA Analysis<a class="anchor-link" href="#PCA-Analysis">&#182;</a></h2><p>The PCA serves to get an idea, if we can reduce dimensions in the dataset. This means we want to see how many attributes we could remove without losing too much information.</p>
+
 </div>
 </div>
 </div>
@@ -16978,7 +16937,7 @@ Alpha:  0.05
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="PCR-Analysis">PCR Analysis<a class="anchor-link" href="#PCR-Analysis">&#182;</a></h3><p>We build a function to perform a PCR. This concept combines a PCA and a logistic regression. 
+<h2 id="PCR-Analysis">PCR Analysis<a class="anchor-link" href="#PCR-Analysis">&#182;</a></h2><p>We build a function to perform a PCR. This concept combines a PCA and a logistic regression. 
 Using Crossvalidation</p>
 
 </div>
@@ -17136,12 +17095,12 @@ Using Crossvalidation</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="PLS">PLS<a class="anchor-link" href="#PLS">&#182;</a></h3><p>Partial Least Squares:</p>
+<h2 id="PLS">PLS<a class="anchor-link" href="#PLS">&#182;</a></h2><p>Partial Least Squares:</p>
 <ul>
+<li>Extension of a multiple linear regression model without restrictions</li>
 <li>Technique similar to Principal Component Analysis (PCA).</li>
 <li>Decomposes both the design matrix X and response vector/matrix Y (can have multiple responses at once) like in PCA and then performs regression between the obtained scores matrix and the eigenvectors.</li>
 <li>The idea is to obtain decomposition of X and Y to be done by taking information from each other into account.</li>
-<li>The most important variables can be selected by the VIP score, which measures explicative power of predictor variables with respect to the response variable in all selected components. Normally, the average of the squared values of the VIPs is equal to 1. The criterion of VIP value with greater than 1 is then typically used as a cutoff point for variable selection.</li>
 </ul>
 
 </div>
@@ -17372,7 +17331,7 @@ Using Crossvalidation</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="XGBoost">XGBoost<a class="anchor-link" href="#XGBoost">&#182;</a></h3>
+<h2 id="XGBoost">XGBoost<a class="anchor-link" href="#XGBoost">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -17395,7 +17354,8 @@ Using Crossvalidation</p>
 <div class="prompt input_prompt">In&nbsp;[170]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_dmatrix</span> <span class="o">=</span><span class="n">xgb</span><span class="o">.</span><span class="n">DMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># DMatrix is a internal data structure that used by XGBoost which is optimized for both memory efficiency and training speed</span>
+<span class="n">data_dmatrix</span> <span class="o">=</span><span class="n">xgb</span><span class="o">.</span><span class="n">DMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -18022,10 +17982,9 @@ best score
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>The results overall were quite well except of PCR and KNN.
-All the models we built using CV were the best (but they also had more samples.) 
 The best RMSLE we scored with Lasso after a few iterations and the PLS.
 Although the R² was not as good for PLS as for the Lasso model.</p>
-<p>Lasso and ElasticNets helped us figuring out the important features, which could be used in further Feature Engineering or modelling.</p>
+<p>Lasso and ElasticNets helped us figuring out the important features. The important features throughout different models were Age, Price and CompPrice. In the Lasso regression though, we can also see a very high importance for the the ShelvLoc_Good and ShelvLoc_Medium. It would be worth looking further into the ShelvLoc further. This will be done in a separate notebook (Car_Significance_tests)</p>
 
 </div>
 </div>
